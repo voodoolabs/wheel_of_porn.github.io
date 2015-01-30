@@ -1,1 +1,25 @@
-console.log('This would be the main JS file.');
+
+
+$( document ).ready(function() {
+
+  $.fn.animateRotate = function(angle, duration, easing, complete) {
+    var args = $.speed(duration, easing, complete);
+    var step = args.step;
+    return this.each(function(i, e) {
+      args.complete = $.proxy(args.complete, e);
+      args.step = function(now) {
+        $.style(e, 'transform', 'rotate(' + now + 'deg)');
+        if (step) return step.apply(e, arguments);
+      };
+
+      $({deg: 0}).animate({deg: angle}, args);
+    });
+  };
+
+  $("#wheel").animateRotate(90, {
+      duration: 1337,
+      easing: 'linear',
+      complete: function () {},
+      step: function () {}
+    });
+});

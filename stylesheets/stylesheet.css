@@ -10,11 +10,17 @@ body {
 
 /* General & 'Reset' Stuff */
 
-.the-wheel{
+.center-wrap{
+  display: table;
+  margin: 0 auto;
+}
+#wheel{
   outline:red 1px solid;
+  width: 200px; height: 200px;
 }
 
 .container {
+  outline:blue 1px solid;
   width: 90%;
   max-width: 600px;
   margin: 0 auto;
